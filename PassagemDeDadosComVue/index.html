@@ -11,8 +11,12 @@
 <body>
 
   <div id="data_binding">
-    <h1> {{message}} </h1>
+    <h1 v-bind:title="tagMessage"> {{message}} </h1>
+    <h2>Essa mensagem em letras garrafais {{message.toUpperCase()}}</h2>
+
     <p>Meu nome é {{person.name}}, Tenho {{person.age}} anos
+      <span v-html="tag"></span>
+
   </div>
 
 
@@ -27,7 +31,9 @@
         person: {
           name: 'Antonio',
           age: 20
-        }
+        },
+        tag: '<button>Clique Aqui</button>',
+        tagMessage: 'Essa é uma tag de título'
       }
     })
   </script>
