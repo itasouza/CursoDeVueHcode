@@ -10,13 +10,9 @@
 
 <body>
 
-  <div id="data_binding">
-    <h1 v-bind:title="tagMessage"> {{message}} </h1>
-    <h2>Essa mensagem em letras garrafais {{message.toUpperCase()}}</h2>
-
-    <p>Meu nome é {{person.name}}, Tenho {{person.age}} anos
-      <span v-html="tag"></span>
-
+  <div id="methods">
+    <h1> {{message}} </h1>
+    <input type="text" placeholder="Digite uma nova mensagem" v-on:blur="replaceMessage($event.target.value)">
   </div>
 
 
@@ -25,15 +21,17 @@
 
   <script>
     let app = new Vue({
-      el: '#data_binding',
+      el: '#methods',
       data: {
-        message: 'exemplo inicial!',
-        person: {
-          name: 'Antonio',
-          age: 20
+        message: 'exemplo inicial!'
+      },
+      methods: {
+        reverseMessage: function () {
+          this.message = this.message.split('').reverse().join('');
         },
-        tag: '<button>Clique Aqui</button>',
-        tagMessage: 'Essa é uma tag de título'
+        replaceMessage(newMessage) {
+          this.message = newMessage;
+        }
       }
     })
   </script>
