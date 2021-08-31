@@ -12,7 +12,18 @@
 
   <div id="computed">
     <h2> Nome: {{person.firtname}} {{person.lastname}} </h2>
-    <h2> Nome Completo: {{fullName}} </h2>
+    <h2> Nome Completo (Computed): {{fullName}} </h2>
+    <h2> Nome Completo (Computed): {{fullName}} </h2>
+    <h2> Nome Completo (Computed): {{fullName}} </h2>
+    <h2> Nome Completo (Computed): {{fullName}} </h2>
+    <h2> Nome Completo (Computed): {{fullName}} </h2>
+    <h2> Nome Completo (Computed): {{fullName}} </h2>
+
+
+    <h2> Nome Completo (Método): {{getFullName()}} </h2>
+    <h2> Nome Completo (Método): {{getFullName()}} </h2>
+    <h2> Nome Completo (Método): {{getFullName()}} </h2>
+
   </div>
 
 
@@ -28,8 +39,16 @@
           lastname: 'Siddeaux'
         }
       },
+      methods: {
+        getFullName: function () {
+          console.log('Métodos');
+          return `${this.person.firtname} ${this.person.lastname}`;
+        }
+      },
+
       computed: {
         fullName: function () {
+          console.log('Computed');
           return `${this.person.firtname} ${this.person.lastname}`;
         }
       }
